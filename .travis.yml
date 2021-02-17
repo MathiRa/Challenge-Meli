@@ -1,0 +1,20 @@
+sudo: false
+language: java
+jdk: openjdk11
+script: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar verify cobertura:cobertura
+env:
+  global:
+    - CODECOV_TOKEN=:142b354f-1657-4920-b89d-e32a9c175fe7
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+
+addons:
+  sonarcloud:
+    organization: "mathira"
+    token:
+      secure: "**************************" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
