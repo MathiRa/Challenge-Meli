@@ -1,17 +1,15 @@
 sudo: false
 language: java
 jdk: openjdk11
-
 cache:
   directories:
-    - .autoconf
-    - $HOME/.m2
-
+  - ".autoconf"
+  - "$HOME/.m2"
 addons:
   sonarcloud:
     organization: mathira
-    token: "zR6+1Z/cJvF1rFrjwo6mdFovBRiD6yt8tx0vEJezD7O5+qM5L1wGEl2zXmJLLVT1OmaGWoH2huVycMIyQERjaMtzcKqirtKKq/z6uHcVfHVvJ4lu9GCH1aT1anTczNIBUMapEGQjcWxR5KvFlAd6F86waxqunu0IPGsc/j8PPGy1akLavMWrJ6NXSjFuDEOxlTg3VVNidgZXnsNKIPdCJRoDAa6asIfTJuIx/3hcgy90Kux0pytNywQszsN55Y6tyZHK21v1aiGcD8NgZUdw0hWbFnxPQcNNCXv/YbQYaauE/3mm58+xtilmkVgl0wLNu2A/08gdBOu4GNRNo/aIHk+dDQh4WGdfG9gIcX5f9xEMJUEFhP0KD0Lz8JJKloP1Yh3d12bHbgNsATdgkwJrMKwN0s3GqiIpS2DxMaP0DT/HEPakN4zMn58Fnrdeoq8luf0nFuVDdeSTYPAEAoTuiD5hpQBL73nt1WW70UNQyFSoNoTxTF6u6WgvQfs2h6PHiFXahtNbXEZQjhc7UCx1zA6H48f9aS0IM+82KRFYGma8s2CpnIkvrrx1oJ45NoJOMlMXVJsDzljVnEm7N3aJfiGGQo6Cn5m1iKTss233TPTDl8NQAFYL1WuUxRESQOw9SfN2zB/e8hbTmInzo6Z3SjtKkZDenfCdQp0AaY7yD2w="
-
-
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar -Dsonar.organization=MathiRa_challenge
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=MathiRa_challenge
+env:
+  global:
+    secure: mnIgC1SUp+41fyPiklrc+m470rNaxcZUUtGttVGnpaHiW8upcRqttq5R0FHFSn7IRw5oBGexKFFcrkz9cW9mSUZzgj7TFI6GOQtcivHUU6/574Ok39aCuu2VrUoc/eqmtFcFIYI9kf3KxpWTupekfZUyufG++yFPIYnuSpphCvoyZIiFVdfYxA/KXn54NCdPztJGSE9cjur99jh2bV3ocLEeuPB5PKlb8SDUTZ3n6+g7Bzz3hUAvl/Cr9hv58+GBEevvaaye/ZSzcuPCl1BnfcToMT812daV3JQw4ZKETcRzSZh6HkLKoDrxcohJ82nx6iMAK9oFsqE4eUB52jGp1F+0jnlwI1TFx/1TmOxUdcVUqQ4IfyFppi1UpF78HCbt+YwnFWiMWjJ0jiTQJopr84XHEcgCsAq7H98xNJreQLBbLXQbDboF/xqXxt+JlLXePNI8wIakSpo4idj7w7Mg/Nu6IVkqR8jbxWLtT5zGoxsqAqk/0qNuSd2XBkBnxJLh1C9qhtc+yvWRO6XTvaYrhiDCWGrCzBNHHgRfk7kpRAXLjtkRrUDSzgXsKHeXUIqFRbGWNQMJdVbk5mCV+vzDMZSBWGHDq+IvLOdjXeUYnGo8u76BLP4MgBcVnmyjDjQvCbvqCg4V5Vbab23s8fj5qtVw+PO/zqYS7se8WHqswsw=
