@@ -4,11 +4,5 @@ cache:
   directories:
   - ".autoconf"
   - "$HOME/.m2"
-addons:
-  sonarcloud:
-    organization: mathira
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=MathiRa_challenge
-env:
-  global:
-    secure: mnIgC1SUp+41fyPiklrc+m470rNaxcZUUtGttVGnpaHiW8upcRqttq5R0FHFSn7IRw5oBGexKFFcrkz9cW9mSUZzgj7TFI6GOQtcivHUU6/574Ok39aCuu2VrUoc/eqmtFcFIYI9kf3KxpWTupekfZUyufG++yFPIYnuSpphCvoyZIiFVdfYxA/KXn54NCdPztJGSE9cjur99jh2bV3ocLEeuPB5PKlb8SDUTZ3n6+g7Bzz3hUAvl/Cr9hv58+GBEevvaaye/ZSzcuPCl1BnfcToMT812daV3JQw4ZKETcRzSZh6HkLKoDrxcohJ82nx6iMAK9oFsqE4eUB52jGp1F+0jnlwI1TFx/1TmOxUdcVUqQ4IfyFppi1UpF78HCbt+YwnFWiMWjJ0jiTQJopr84XHEcgCsAq7H98xNJreQLBbLXQbDboF/xqXxt+JlLXePNI8wIakSpo4idj7w7Mg/Nu6IVkqR8jbxWLtT5zGoxsqAqk/0qNuSd2XBkBnxJLh1C9qhtc+yvWRO6XTvaYrhiDCWGrCzBNHHgRfk7kpRAXLjtkRrUDSzgXsKHeXUIqFRbGWNQMJdVbk5mCV+vzDMZSBWGHDq+IvLOdjXeUYnGo8u76BLP4MgBcVnmyjDjQvCbvqCg4V5Vbab23s8fj5qtVw+PO/zqYS7se8WHqswsw=
+  - mvn -Dsonar.login=482977fbd80520bb183ca3ba7e36d26c2c37df4a clean package sonar:sonar

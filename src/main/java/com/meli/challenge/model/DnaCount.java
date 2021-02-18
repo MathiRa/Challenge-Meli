@@ -19,5 +19,4 @@ public class DnaCount implements Serializable {
   @Column(name ="mutant_count")
   private Long mutantCount;
 
-
 }

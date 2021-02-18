@@ -9,6 +9,6 @@ import org.springframework.data.redis.core.RedisHash;
 @RedisHash("dna")
 public class Dna implements Serializable {
   @Id
-  private String[] dna;
+  private String[] dnaData;
 
 }

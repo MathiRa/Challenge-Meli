@@ -21,7 +21,7 @@ public class Controller {
   }
 
   @PostMapping(value = "/mutant", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-  public ResponseEntity<?> isMutant(@RequestBody Dna dna) {
+  public ResponseEntity<Object> isMutant(@RequestBody Dna dna) {
     var isMutant = service.isMutant(dna);
     return isMutant ? ResponseEntity.status(HttpStatus.OK).build() : ResponseEntity.status(HttpStatus.FORBIDDEN).build();
   }
