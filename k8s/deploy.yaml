@@ -20,9 +20,9 @@ spec:
             privileged: true
           resources:
             requests:
-              cpu: 1000m
-            limits:
-              cpu: 1000m
+              cpu: 250m
+#            limits:
+#              cpu: 300m
           ports:
             - containerPort: 8080
           readinessProbe:
