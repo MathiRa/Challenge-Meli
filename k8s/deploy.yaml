@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-deployment
+  labels:
+    app: challenge-deployment
+spec:
+  selector:
+    matchLabels:
+      app: challenge-pod
+  template:
+    metadata:
+      labels:
+        app: challenge-pod
+    spec:
+      containers:
+        - name: challenge
+          image: mathi093/challenge:latest
+          securityContext:
+            privileged: true
+          resources:
+            requests:
+              cpu: 1000m
+            limits:
+              cpu: 1000m
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            tcpSocket:
+              port: targetPortPlaceHolder
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: application-config
+              mountPath: "/deployments/config/application.yml"
+              subPath: application.yml
+              readOnly: true
+      volumes:
+        - name: application-config
+          configMap:
+            name: challenge
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: challenge-service
+  labels:
+    app: challenge-service
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: challenge-pod
+
+---
+
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: challenge-deployment
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: challenge-deployment
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
