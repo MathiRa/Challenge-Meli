@@ -27,7 +27,7 @@ spec:
             - containerPort: 8080
           readinessProbe:
             tcpSocket:
-              port: targetPortPlaceHolder
+              port: 8080
             initialDelaySeconds: 10
             periodSeconds: 10
           imagePullPolicy: Always
