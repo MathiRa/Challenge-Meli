@@ -1,14 +1,19 @@
 package com.meli.challenge.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
-import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
 
-@Data
-@RedisHash("dna")
+
 public class Dna implements Serializable {
-  @Id
-  private String[] dnaData;
 
+  @JsonProperty(value = "dna")
+  private String[] dnaValue;
+
+  public String[] getDnaValue() {
+    return dnaValue;
+  }
+
+  public void setDnaValue(String[] dnaValue) {
+    this.dnaValue = dnaValue;
+  }
 }

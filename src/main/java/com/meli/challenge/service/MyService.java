@@ -17,20 +17,20 @@ public class MyService {
     this.repository = repository;
   }
 
-  @Cacheable(cacheNames = "dna", key = "#dna.dna")
+  @Cacheable(cacheNames = "dna", key = "#dna.dnaValue")
   public boolean isMutant(Dna dna) {
-    var length = dna.getDnaData()[0].length();
+    var length = dna.getDnaValue()[0].length();
     var isMutant = false;
     if (length >= 4) {
       int hits = 0;
-      hits += horizontalCheck(dna.getDnaData());
+      hits += horizontalCheck(dna.getDnaValue());
       isMutant = hits >= 2;
       if (!isMutant) {
-        hits += verticalCheck(dna.getDnaData());
+        hits += verticalCheck(dna.getDnaValue());
         isMutant = hits >= 2;
       }
       if (!isMutant) {
-        hits += diagonalCheck(dna.getDnaData());
+        hits += diagonalCheck(dna.getDnaValue());
         isMutant = hits >= 2;
       }
     }

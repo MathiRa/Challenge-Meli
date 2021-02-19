@@ -11,32 +11,26 @@
 
 	<groupId>com.meli</groupId>
 	<artifactId>challenge</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-FINAL</version>
 	<name>ch</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Challenge</description>
 
 	<properties>
 		<java.version>11</java.version>
 		<sonar.projectKey>MathiRa_challenge</sonar.projectKey>
 		<sonar.organization>mathira</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-
-
-
 		<sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<dependency.check.report.dir>${project.build.directory}/dependency-check</dependency.check.report.dir>
 		<sonar.dependencyCheck.reportPath>${dependency.check.report.dir}/dependency-check-report.xml</sonar.dependencyCheck.reportPath>
 		<sonar.dependencyCheck.htmlReportPath>${dependency.check.report.dir}/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
 		<sonar.surefire.reportsPath>${project.basedir}/target/surefire-reports</sonar.surefire.reportsPath>
-
 		<sonar.exclusions>
 			**/ChApplication.java
 		</sonar.exclusions>
-
 		<sonar.coverage.exclusions>
 			**/model/*.java
 		</sonar.coverage.exclusions>
-
 	</properties>
 
 	<dependencies>

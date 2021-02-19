@@ -60,7 +60,7 @@ class ServiceTests {
   void isMutantFalseLess4Test() {
     var dna = new Dna();
     String[] value = {"AAA", "AAA", "AAA"};
-    dna.setDnaData(value);
+    dna.setDnaValue(value);
     var isMutant = service.isMutant(dna);
     assertFalse(isMutant);
     assertEquals(1, dnaCount.getHumanCount());
@@ -70,7 +70,7 @@ class ServiceTests {
   void isMutantFalseTest() {
     var dna = new Dna();
     String[] value = {"ATGC", "CAGT", "TTAT", "AGAC"};
-    dna.setDnaData(value);
+    dna.setDnaValue(value);
     var isMutant = service.isMutant(dna);
     assertFalse(isMutant);
     assertEquals(1, dnaCount.getHumanCount());
@@ -80,7 +80,7 @@ class ServiceTests {
   void isMutantTrueVerticalTest() {
     var dna = new Dna();
     String[] value = {"ATGT", "AAGT", "ATAT", "AGAT"};
-    dna.setDnaData(value);
+    dna.setDnaValue(value);
     var isMutant = service.isMutant(dna);
     assertTrue(isMutant);
     assertEquals(1, dnaCount.getMutantCount());
@@ -90,7 +90,7 @@ class ServiceTests {
   void isMutantTrueHorizontalTest() {
     var dna = new Dna();
     String[] value = {"AAAA", "CAGT", "TTTT", "AGAC"};
-    dna.setDnaData(value);
+    dna.setDnaValue(value);
     var isMutant = service.isMutant(dna);
     assertTrue(isMutant);
     assertEquals(1, dnaCount.getMutantCount());
@@ -100,7 +100,7 @@ class ServiceTests {
   void isMutantTrueDiag1Test() {
     var dna = new Dna();
     String[] value = {"AAAA", "CAGT", "TTAT", "AGAA"};
-    dna.setDnaData(value);
+    dna.setDnaValue(value);
     var isMutant = service.isMutant(dna);
     assertTrue(isMutant);
     assertEquals(1, dnaCount.getMutantCount());
@@ -110,7 +110,7 @@ class ServiceTests {
   void isMutantTrueDiag2Test() {
     var dna = new Dna();
     String[] value = {"CTGC", "CACT", "CCAT", "CGAC"};
-    dna.setDnaData(value);
+    dna.setDnaValue(value);
     var isMutant = service.isMutant(dna);
     assertTrue(isMutant);
     assertEquals(1, dnaCount.getMutantCount());
@@ -124,7 +124,7 @@ class ServiceTests {
                       "TCATT",
                       "AGCCT",
                       "GCGCC"};
-    dna.setDnaData(value);
+    dna.setDnaValue(value);
     var isMutant = service.isMutant(dna);
     assertTrue(isMutant);
     assertEquals(1, dnaCount.getMutantCount());
@@ -138,7 +138,7 @@ class ServiceTests {
                       "TGACT",
                       "GGCCC",
                       "GCGCC"};
-    dna.setDnaData(value);
+    dna.setDnaValue(value);
     var isMutant = service.isMutant(dna);
     assertTrue(isMutant);
     assertEquals(1, dnaCount.getMutantCount());
