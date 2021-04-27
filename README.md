@@ -22,10 +22,9 @@
 
 ## Example
 
-```curl -X POST -H 'Content-Type: application/json' -i 'http://35.226.162.40/mutant' --data '{"dna":["AAAAAA","AAGTGC","TTATGT","AGAAGG","CCTCTA","TCACTG"]}'```
+```curl -X POST -H 'Content-Type: application/json' -i 'url/mutant' --data '{"dna":["AAAAAA","AAGTGC","TTATGT","AGAAGG","CCTCTA","TCACTG"]}'```
 
-```curl -X GET -i 'http://35.226.162.40/stats'```
+```curl -X GET -i 'url/stats'```
 
-El build esta automatizado asi como tambien el análisis en SonarCloud a través de Travis CI. Como futura mejora se podria incluir el deploy, actualmente se hace manualmente con la herramienta kubectl.
 
 
